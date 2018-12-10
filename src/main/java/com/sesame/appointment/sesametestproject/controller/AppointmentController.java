@@ -91,7 +91,7 @@ public class AppointmentController {
 	 * @return
 	 */
 	@PostMapping
-	public Appointment newAppointment(@RequestBody Appointment appointment) {
+	public Appointment newAppointment(Appointment appointment) {
 		return appointmentRepository.save(appointment);
 	}
 	
@@ -104,7 +104,7 @@ public class AppointmentController {
 	 * @return
 	 */
 	@PutMapping("/{id}")
-	public Appointment replaceAppointment(@RequestBody Appointment newAppointment, @PathVariable Long id) {
+	public Appointment replaceAppointment(Appointment newAppointment, @PathVariable Long id) {
 
 		return appointmentRepository.findById(id)
 			.map(appointment -> {
