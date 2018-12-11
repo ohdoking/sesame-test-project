@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mysql-docker-container:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: sesame_db
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: sesame
+      MYSQL_PASSWORD: 1234
+    ports:
+    - 3306:3306
+    restart: always
+  app:
+    restart: always
+    build: ./target
+    working_dir: /target
+    volumes:
+    - ./target:/target
+    - ~/.m2:/root/.m2
+    ports:
+    - 8000:8080
+    expose:
+    - 80
+    links:
+    - mysql-docker-container
+    command: mvn clean spring-boot:run
+    depends_on:
+    - mysql-docker-container
+    
