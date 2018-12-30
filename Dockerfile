@@ -1,6 +1,6 @@
-FROM java:8
-ARG ARTIFACT
-ADD ${ARTIFACT} app.jar
-EXPOSE 8080
+FROM frolvlad/alpine-oraclejdk8:slim
+ADD ["target/sesame-test-project-0.0.1-SNAPSHOT-exec.jar", "app.jar"]
+EXPOSE 8080 8080
+ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 RUN sh -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar", "--spring.profiles.active=docker"]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar" ]
