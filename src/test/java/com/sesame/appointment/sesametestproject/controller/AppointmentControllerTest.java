@@ -27,7 +27,7 @@ import com.sesame.appointment.sesametestproject.domain.Appointment;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AppointmentControllerTest {
 	
-	String api = "/api/v1/";
+	String api = "/api/v1/sesame/";
 	
 	@Autowired
     private WebApplicationContext wac;
