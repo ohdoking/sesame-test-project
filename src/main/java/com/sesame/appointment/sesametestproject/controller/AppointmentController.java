@@ -32,7 +32,7 @@ import com.sesame.appointment.sesametestproject.repository.AppointmentRepository
 
 
 @RestController
-@RequestMapping(value = "/api/v1/appointment" )
+@RequestMapping(value = "/appointment" )
 public class AppointmentController {
 
 	@Autowired
