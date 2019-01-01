@@ -27,7 +27,7 @@ import com.sesame.appointment.sesametestproject.domain.Appointment;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AppointmentControllerTest {
 	
-	String api = "/api/v1/sesame/";
+	String api = "/";
 	
 	@Autowired
     private WebApplicationContext wac;
@@ -81,7 +81,6 @@ public class AppointmentControllerTest {
     }
     
     @Test
-    @Disabled
     void deleteAppointmentTest() throws Exception {
            
         mockMvc
